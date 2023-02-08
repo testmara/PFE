@@ -1,0 +1,170 @@
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Users</c-card-header>
+      <c-card-body>
+        <mat-card>
+          <mat-card-header>
+              <mat-card-title>Teams</mat-card-title>
+              <mat-card-subtitle>All Teams</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-actions>
+              <div class="example-button-row">
+                  <button mat-fab extended color="primary" >
+                      <mat-icon>group_add</mat-icon>
+                      New team
+                  </button>
+              </div>
+              <!-- <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+      </mat-card>
+      <br>
+      <br>
+      <br>
+      
+      
+      
+      <mat-accordion class="example-headers-align" multi>
+      
+      
+          <mat-expansion-panel disabled>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      Id
+                  </mat-panel-title>
+                  <mat-panel-description>
+                      Team Name
+                  </mat-panel-description>
+                  <mat-panel-description>
+                      Slogan
+                  </mat-panel-description>
+              </mat-expansion-panel-header>
+          </mat-expansion-panel>
+      
+      
+          <ng-template >
+      
+              <mat-expansion-panel >
+                  <mat-expansion-panel-header>
+                      <mat-panel-title>
+                          dsdsff
+                      </mat-panel-title>
+                      <mat-panel-description>
+                          fhgfyfyd
+                      </mat-panel-description>
+                      <mat-panel-description>
+                          gfsdgf
+                      </mat-panel-description>
+      
+      
+                      <!--<mat-panel-description>
+                          <a> Modifier <mat-icon> border_color</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                          <a>Supprimer <mat-icon>delete_forever</mat-icon></a>
+      
+                      </mat-panel-description>-->
+                  </mat-expansion-panel-header>
+                  <mat-action-row>
+                      <br>
+                      <br>
+                      <button mat-button color="primary" >Manage Team</button>
+                  </mat-action-row>
+      
+                  <section>
+                      <div class=""> <h1>Equipe : gfgfgfgf  &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;
+                          <button mat-stroked-button color="primary" >
+                              Modify
+                          </button>
+                          &nbsp; &nbsp;
+                          <button mat-stroked-button color="warn" >
+                              Delete
+                          </button>
+                      </h1>   </div>
+      
+      
+                  </section>
+      
+              </mat-expansion-panel>
+      
+          </ng-template>
+      
+      
+      
+      </mat-accordion>
+        <table
+          [hover]="true"
+          [responsive]="true"
+          [striped]="true"
+          align="middle"
+          cTable
+          class="mb-0 border"
+        >
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">
+                <svg cIcon name="cilPeople"></svg>
+              </th>
+              <th>User</th>
+              <th class="text-center">Country</th>
+              <th>Usage</th>
+              <th class="text-center">Payment Method</th>
+              <th>Activity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; index as i">
+              <td class="text-center">
+                <c-avatar
+                  size="md"
+                  src="{{ user.avatar }}"
+                  status="{{ user.status }}"
+                ></c-avatar>
+              </td>
+              <td>
+                <div>{{ user.name }}</div>
+                <div class="small text-medium-emphasis text-nowrap">
+                  <span>
+                    {{ user.state }} | Registered: {{ user.registered }}
+                  </span>
+                </div>
+              </td>
+              <td class="text-center">
+                <svg
+                  cIcon
+                  id="{{ user.country + user.name }}"
+                  name="cif{{ user.country }}"
+                  size="xl"
+                  title="{{ user.country }}"
+                ></svg>
+              </td>
+              <td>
+                <div class="d-flex justify-content-between">
+                  <div class="float-start">
+                    <strong>{{ user.usage }}%</strong>
+                  </div>
+                  <div class="float-end ms-1 text-nowrap">
+                    <small class="text-medium-emphasis">
+                      {{ user.period }}
+                    </small>
+                  </div>
+                </div>
+                <c-progress thin>
+                  <c-progress-bar
+                    [value]="user.usage"
+                    color="{{ user.color }}"
+                  ></c-progress-bar>
+                </c-progress>
+              </td>
+              <td class="text-center">
+                <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg>
+              </td>
+              <td>
+                <div class="small text-medium-emphasis">Last login</div>
+                <div class="fw-semibold text-nowrap">{{ user.activity }}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
