@@ -68,6 +68,7 @@ import {MatInputModule} from "@angular/material/input";
     MatCardModule,
     MatInputModule,
     MatDialogModule,
+    IconModule,
   ],
   declarations: [DashboardComponent]
 })
