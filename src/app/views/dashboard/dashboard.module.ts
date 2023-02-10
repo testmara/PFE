@@ -18,7 +18,7 @@ import { IconModule } from '@coreui/icons-angular';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { WidgetsModule } from '../widgets/widgets.module';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -36,6 +36,7 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {TestComponent} from "./test/test.component";
 
 @NgModule({
   imports: [
@@ -70,7 +71,7 @@ import {MatInputModule} from "@angular/material/input";
     MatDialogModule,
     IconModule,
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent, TestComponent]
 })
 export class DashboardModule {
 }
