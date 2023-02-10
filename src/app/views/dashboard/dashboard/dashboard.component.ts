@@ -23,7 +23,13 @@ interface IUser {
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  isChildRouteActive = false;
   constructor(private chartsData: DashboardChartsData, private router: Router, private route: ActivatedRoute) {
+    if (this.route.firstChild) {
+      this.route.firstChild.data.subscribe(data => {
+        this.isChildRouteActive = data['isChildRouteActive'];
+      });
+    }
   }
 
   public users: IUser[] = [
@@ -126,9 +132,7 @@ export class DashboardComponent implements OnInit {
     this.initCharts();
   }
 
-  isChildRouteActive = false;
-  onChildActivate(event: any) {
-    this.isChildRouteActive = true;
-  }
+
+
 
 }
