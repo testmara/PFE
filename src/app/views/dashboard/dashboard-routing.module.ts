@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {ButtonsComponent} from "../buttons/buttons/buttons.component";
+import {TestComponent} from "./test/test.component";
 
 const routes: Routes = [
   {
@@ -9,8 +11,22 @@ const routes: Routes = [
     component: DashboardComponent,
     data: {
       title: $localize`Dashboard`
-    }
-  }
+    },
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'buttons'
+      },
+      {
+        path: 'butto',
+        component: TestComponent,
+        data: {
+          title: 'Butto'
+        }
+      },]
+  },
+
 ];
 
 @NgModule({

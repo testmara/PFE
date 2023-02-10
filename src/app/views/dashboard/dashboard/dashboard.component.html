@@ -1,3 +1,4 @@
+<div *ngIf="!isChildRouteActive">
 <c-row>
   <c-col xs>
     <c-card class="mb-4">
@@ -90,7 +91,7 @@
                   <br>
 
                   
-                  <button mat-stroked-button color="warn">
+                  <button mat-stroked-button color="warn" routerLink="./butto">
                       Suivi TOEIC
                   </button>
               </div>
@@ -105,3 +106,5 @@
     </c-card>
   </c-col>
 </c-row>
+</div>
+<router-outlet (activate)="onChildActivate($event)"></router-outlet>
