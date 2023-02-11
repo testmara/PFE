@@ -37,6 +37,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {TestComponent} from "./test/test.component";
+import { SuiviTOEICComponent } from './suivi-toeic/suivi-toeic.component';
+import { SuiviSMIComponent } from './suivi-smi/suivi-smi.component';
 
 @NgModule({
   imports: [
@@ -71,7 +73,7 @@ import {TestComponent} from "./test/test.component";
     MatDialogModule,
     IconModule,
   ],
-  declarations: [DashboardComponent, TestComponent]
+  declarations: [DashboardComponent, TestComponent, SuiviTOEICComponent, SuiviSMIComponent]
 })
 export class DashboardModule {
 }
