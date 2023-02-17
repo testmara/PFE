@@ -1,9 +1,10 @@
-<div *ngIf="!isChildRouteActive">
 <c-row>
   <c-col xs>
     <c-card class="mb-4">
       <c-card-header>Etudiants</c-card-header>
       <c-card-body>
+
+
 
         <!--<mat-card>
           <mat-card-header>
@@ -26,7 +27,7 @@
 
 
       <mat-accordion class="example-headers-align" multi>
-        <mat-expansion-panel disabled cTableColor="light">
+        <mat-expansion-panel disabled>
           <mat-expansion-panel-header>
               <mat-panel-title  class="text-center">
                 <svg cIcon name="cilPeople"></svg>
@@ -91,14 +92,14 @@
                   <br>
 
 
-                  <button mat-stroked-button color="warn" routerLink="./suivitoeic">
+                  <button mat-stroked-button color="warn" routerLink="/dashboard/suivitoeic">
                       Suivi TOEIC
                   </button>
                 <br>
                 <br>
 
 
-                <button mat-stroked-button color="primary" routerLink="./suivismi">
+                <button mat-stroked-button color="primary" routerLink="/dashboard/suivismi">
                   Suivi SMI
                 </button>
                 <br>
@@ -110,10 +111,73 @@
 
 
           </mat-expansion-panel>
+
+
+
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      <c-avatar
+                              size="md"
+                              src="{{ users[0].avatar }}"
+                              status="{{ users[0].status }}"
+                      ></c-avatar>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                      BEN YAALA Siwar
+                  </mat-panel-description>
+                  <mat-panel-description>
+                      17/05/1999
+                  </mat-panel-description>
+                  <mat-panel-description>
+                      11808943
+                  </mat-panel-description>
+                  <mat-panel-description>
+                      siwar.benyaala@edu.univ-paris13.fr <!--<svg cIcon name="cil-plus"></svg>-->
+                  </mat-panel-description>
+                  <mat-panel-description>
+                      13 Avenue Du Général De Gaulle 93440 Dugny
+                  </mat-panel-description>
+                  <mat-panel-description>
+                      06.24.70.72.70<!--<svg cIcon name="cil-plus"></svg>-->
+                  </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <section>
+                  <div class="">
+                      <button mat-stroked-button color="primary">
+                          Fiche de scolarité
+                      </button>
+                      <br>
+                      <br>
+
+
+                      <button mat-stroked-button color="warn" routerLink="/dashboard/suivitoeic">
+                          Suivi TOEIC
+                      </button>
+                      <br>
+                      <br>
+
+
+                      <button mat-stroked-button color="primary" routerLink="/dashboard/suivismi">
+                          Suivi SMI
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+
+              </section>
+
+
+          </mat-expansion-panel>
+
+
+
+
       </mat-accordion>
       </c-card-body>
     </c-card>
   </c-col>
 </c-row>
-</div>
 <router-outlet></router-outlet>

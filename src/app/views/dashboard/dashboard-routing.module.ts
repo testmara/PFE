@@ -10,7 +10,6 @@ import {SuiviSMIComponent} from "./suivi-smi/suivi-smi.component";
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
     data: {
       title: $localize`Dashboard`
     },
@@ -18,7 +17,14 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'buttons'
+        redirectTo: 'dashboard'
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: {
+          title: 'Dashboard'
+        }
       },
       {
         path: 'butto',
