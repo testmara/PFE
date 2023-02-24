@@ -1,0 +1,17 @@
+<section class="example-container mat-elevation-z8" tabindex="0">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="Colonne1">
+      <th mat-header-cell *matHeaderCellDef style="background-color: whitesmoke"> </th>
+      <td mat-cell *matCellDef="let element"> {{element.Colonne1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Colonne2">
+      <th mat-header-cell *matHeaderCellDef style="background-color: whitesmoke"> </th>
+      <td mat-cell *matCellDef="let element"> {{element.Colonne2}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>

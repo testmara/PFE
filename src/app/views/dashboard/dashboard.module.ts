@@ -39,6 +39,25 @@ import {MatInputModule} from "@angular/material/input";
 import {TestComponent} from "./test/test.component";
 import { SuiviTOEICComponent } from './suivi-toeic/suivi-toeic.component';
 import { SuiviSMIComponent } from './suivi-smi/suivi-smi.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatListModule} from "@angular/material/list";
+import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
+import { ScolarFormComponent } from './scolar-form/scolar-form.component';
+import { Semestre5Component } from './semestre5/semestre5.component';
+import { Semestre6Component } from './semestre6/semestre6.component';
+import { Semestre7Component } from './semestre7/semestre7.component';
+import { Semestre8Component } from './semestre8/semestre8.component';
+import { Semestre9Component } from './semestre9/semestre9.component';
+import { Semestre10Component } from './semestre10/semestre10.component';
+import { ResultatToeicComponent } from './resultat-toeic/resultat-toeic.component';
+import { SmiComponent } from './smi/smi.component';
+import { DecouverteComponent } from './stages/decouverte/decouverte.component';
+import { TechnicienComponent } from './stages/technicien/technicien.component';
+import { FinEtudesComponent } from './stages/fin-etudes/fin-etudes.component';
+import { StagesComponent } from './stages/stages.component';
+import { PromotionComponent } from './promotion/promotion.component';
+
 
 @NgModule({
   imports: [
@@ -64,16 +83,20 @@ import { SuiviSMIComponent } from './suivi-smi/suivi-smi.component';
     MatButtonToggleModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatListModule,
     MatIconModule,
+    MatTooltipModule,
     MatFormFieldModule,
     MatExpansionModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
     IconModule,
   ],
-  declarations: [DashboardComponent, TestComponent, SuiviTOEICComponent, SuiviSMIComponent]
+  declarations: [DashboardComponent, TestComponent, SuiviTOEICComponent, SuiviSMIComponent, ScolarFormComponent, Semestre5Component, Semestre6Component, Semestre7Component, Semestre8Component, Semestre9Component, Semestre10Component, ResultatToeicComponent, SmiComponent, DecouverteComponent, TechnicienComponent, FinEtudesComponent, StagesComponent, PromotionComponent]
 })
 export class DashboardModule {
 }

@@ -6,6 +6,8 @@ import {ButtonsComponent} from "../buttons/buttons/buttons.component";
 import {TestComponent} from "./test/test.component";
 import {SuiviTOEICComponent} from "./suivi-toeic/suivi-toeic.component";
 import {SuiviSMIComponent} from "./suivi-smi/suivi-smi.component";
+import {ScolarFormComponent} from "./scolar-form/scolar-form.component";
+import {PromotionComponent} from "./promotion/promotion.component";
 
 const routes: Routes = [
   {
@@ -21,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        component: DashboardComponent,
+        component: PromotionComponent,
         data: {
           title: 'Dashboard'
         }
@@ -31,6 +33,13 @@ const routes: Routes = [
         component: TestComponent,
         data: {
           title: 'Butto'
+        },
+      },
+      {
+        path: 'student',
+        component: DashboardComponent,
+        data: {
+          title: 'Student'
         },
       },
       {
@@ -45,6 +54,13 @@ const routes: Routes = [
         component: SuiviSMIComponent,
         data: {
           title: 'suivismi'
+        },
+      },
+      {
+        path: 'scolarform',
+        component: ScolarFormComponent,
+        data: {
+          title: 'Fiche de scolarité'
         },
       }
     ]

@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <c-row>
   <c-col xs>
     <c-card class="mb-4">
@@ -26,158 +27,102 @@
       -->
 
 
-      <mat-accordion class="example-headers-align" multi>
-        <mat-expansion-panel disabled>
-          <mat-expansion-panel-header>
-              <mat-panel-title  class="text-center">
-                <svg cIcon name="cilPeople"></svg>
-              </mat-panel-title>
-              <mat-panel-description>
-                  NOM & Prénom
-              </mat-panel-description>
-              <mat-panel-description>
-                  Date de naissance
-              </mat-panel-description>
-              <mat-panel-description>
-                  Numéro étudiant
-              </mat-panel-description>
-              <mat-panel-description>
-                  Adresse mail
-              </mat-panel-description>
-              <mat-panel-description>
-                  Adresse postale
-              </mat-panel-description>
-              <mat-panel-description>
-                  Numéro de téléphone
-              </mat-panel-description>
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
+          <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+          </mat-form-field>
+        <section >
+          <table mat-table
+                 [dataSource]="dataSource" multiTemplateDataRows
+                 class="mat-elevation-z8" matSort>
+              <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> {{columnsHeadersRecord[column]}} </th>
 
+                  <ng-template [ngIf]="column == 'b64ImageSrc'" [ngIfElse]="doelse">
+                      <td mat-cell *matCellDef="let element">  <img src="{{element[column]}}">      </td>
+                  </ng-template>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <c-avatar
-                  size="md"
-                  src="{{ users[0].avatar }}"
-                  status="{{ users[0].status }}"
-                ></c-avatar>
-                </mat-panel-title>
-                <mat-panel-description>
-                    BEN YAALA Siwar
-                </mat-panel-description>
-                <mat-panel-description>
-                    17/05/1999
-                </mat-panel-description>
-                <mat-panel-description>
-                    11808943
-                </mat-panel-description>
-                <mat-panel-description>
-                    siwar.benyaala@edu.univ-paris13.fr <!--<svg cIcon name="cil-plus"></svg>-->
-                </mat-panel-description>
-                <mat-panel-description>
-                    13 Avenue Du Général De Gaulle 93440 Dugny
-                </mat-panel-description>
-                <mat-panel-description>
-                    06.24.70.72.70<!--<svg cIcon name="cil-plus"></svg>-->
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+                  <ng-template #doelse>
+                      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                  </ng-template>
 
-          <section>
-              <div class="">
-                  <button mat-stroked-button color="primary">
-                      Fiche de scolarité
-                  </button>
-                  <br>
-                  <br>
-
-
-                  <button mat-stroked-button color="warn" routerLink="/dashboard/suivitoeic">
-                      Suivi TOEIC
-                  </button>
-                <br>
-                <br>
-
-
-                <button mat-stroked-button color="primary" routerLink="/dashboard/suivismi">
-                  Suivi SMI
-                </button>
-                <br>
-                <br>
-              </div>
-
-
-          </section>
-
-
-          </mat-expansion-panel>
-
-
-
-          <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                  <mat-panel-title>
-                      <c-avatar
-                              size="md"
-                              src="{{ users[0].avatar }}"
-                              status="{{ users[0].status }}"
-                      ></c-avatar>
-                  </mat-panel-title>
-                  <mat-panel-description>
-                      BEN YAALA Siwar
-                  </mat-panel-description>
-                  <mat-panel-description>
-                      17/05/1999
-                  </mat-panel-description>
-                  <mat-panel-description>
-                      11808943
-                  </mat-panel-description>
-                  <mat-panel-description>
-                      siwar.benyaala@edu.univ-paris13.fr <!--<svg cIcon name="cil-plus"></svg>-->
-                  </mat-panel-description>
-                  <mat-panel-description>
-                      13 Avenue Du Général De Gaulle 93440 Dugny
-                  </mat-panel-description>
-                  <mat-panel-description>
-                      06.24.70.72.70<!--<svg cIcon name="cil-plus"></svg>-->
-                  </mat-panel-description>
-              </mat-expansion-panel-header>
-
-              <section>
-                  <div class="">
-                      <button mat-stroked-button color="primary">
-                          Fiche de scolarité
+              </ng-container>
+              <ng-container matColumnDef="expand">
+                  <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                  <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                          <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                          <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
                       </button>
-                      <br>
-                      <br>
+                  </td>
+              </ng-container>
 
+              <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+              <ng-container matColumnDef="expandedDetail">
+                  <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+                      <div class="example-element-detail"
+                           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                          <div class="example-element-diagram">
+                              <div class="example-element-position">  </div>
+                              <div class="example-element-symbol"> </div>
+                              <div class="example-element-name"> </div>
+                              <div class="example-element-weight"> </div>
+                          </div>
 
-                      <button mat-stroked-button color="warn" routerLink="/dashboard/suivitoeic">
-                          Suivi TOEIC
-                      </button>
-                      <br>
-                      <br>
+                          <div class="example-element-description">
+                              <div>
+                                  <span style="font-size: medium; text-decoration: underline">Date de naissance</span>:
+                                  <span style="font-size:medium; font-family: 'Lucida Console'"> {{element.birthday}} </span>
+                              </div>
 
+                              <div style="padding-top: 5%">
+                              <span style="font-size: medium; text-decoration: underline">Emails</span>:
+                              <ng-container *ngFor="let email of element.emails">
+                                  <a style="padding-top: 5%; font-family: 'Lucida Console';text-decoration: none">{{email}};</a>
+                              </ng-container>
+                              </div>
 
-                      <button mat-stroked-button color="primary" routerLink="/dashboard/suivismi">
-                          Suivi SMI
-                      </button>
-                      <br>
-                      <br>
-                  </div>
+                              <div style="padding-top: 5%">
+                                  <span style="font-size: medium; text-decoration: underline">Téléphone</span>:
+                                  <ng-container *ngFor="let email of element.tels">
+                                      <a style="padding-top: 5%; font-family: 'Lucida Console'; text-decoration: none">{{email}};</a>
+                                  </ng-container>
+                              </div>
 
+                          </div>
+                          <div class="example-element-description"></div>
+                          <div class="example-element-description"></div>
+                          <div class="example-element-description">
+                              <div>&nbsp;</div>
+                                  <div class="">
+                                      <h1>&nbsp;
+                                          <button mat-stroked-button color="warn" routerLink="/dashboard/scolarform" >Voir plus </button>
+                                      </h1>
+                                  </div>
+                          </div>
 
-              </section>
+                      </div>
 
+                  </td>
 
-          </mat-expansion-panel>
+              </ng-container>
 
+              <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand; " ></tr>
+              <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+                  class="example-element-row"
+                  [class.example-expanded-row]="expandedElement === element"
+                  (click)="expandedElement = expandedElement === element ? null : element">
+              </tr>
+              <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">Aucun résultat pour "{{input.value}}"</td>
+              </tr>
+          </table>
+            <mat-paginator [pageSizeOptions]="[4, 8, 16, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </section>
 
-
-
-      </mat-accordion>
       </c-card-body>
     </c-card>
   </c-col>
 </c-row>
-<router-outlet></router-outlet>

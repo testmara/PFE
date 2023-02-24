@@ -1,0 +1,23 @@
+.example-container {
+  height: 110px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.highlighted-row {
+  background-color: whitesmoke;
+  font-weight: bold;
+}
+
+
+th {
+  font-weight: bold;
+  font-family: "Comic Sans MS", "Comic Sans", monospace;
+}
+
+td {
+  font-family: "Comic Sans MS", "Comic Sans", monospace;
+}

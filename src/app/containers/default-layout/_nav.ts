@@ -3,6 +3,20 @@ import { INavData } from '@coreui/angular';
 export const navItems: INavData[] = [
   {
     title: true,
+    name: 'Accueil'
+  },
+  {
+    name: 'Promotions',
+    url: '/dashboard',
+    iconComponent: { name: 'cil-drop' },
+  },
+  /*{
+    name: 'Dashboard',
+    url: '/dashboard',
+    iconComponent: { name: 'cil-drop' }
+  },
+  {
+    title: true,
     name: 'Theme'
   },
   {
@@ -208,28 +222,28 @@ export const navItems: INavData[] = [
   {
     title: true,
     name: 'Extras'
-  },
+  },*/
   {
-    name: 'Pages',
+    name: 'Mode',
     url: '/login',
     iconComponent: { name: 'cil-star' },
     children: [
       {
-        name: 'Login',
+        name: 'Edition',
         url: '/login'
       },
       {
-        name: 'Register',
-        url: '/register'
+        name: 'Consultation',
+        url: '/registerr'
       },
-      {
+      /*{
         name: 'Error 404',
         url: '/404'
       },
       {
         name: 'Error 500',
         url: '/500'
-      }
+      }*/
     ]
   },
 ];
